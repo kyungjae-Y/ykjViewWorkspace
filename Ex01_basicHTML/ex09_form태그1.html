@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button type="button" onclick="alert('안녕하세요?')">눌러보세요!</button>
+  <br><br>
+  <form>
+    <input type="button" value="인사" onclick="alert('hello!')">
+  </form>
+
+  <form action="http://localhost/order.php"> <!-- http://localhost/order.php?check1=green&check2=S -->
+    <h3>색상(단일선택)</h3>
+    <p>
+      <input type="radio" name="check1" value="red"> red
+      <input type="radio" name="check1" value="green"> green
+      <input type="radio" name="check1" value="blue"> blue
+    </p>
+    <h3>사이즈(단일선택)</h3>
+    <p>
+      <input type="radio" name="check2" value="L"> Large
+      <input type="radio" name="check2" value="M" checked> Midium
+      <input type="radio" name="check2" value="S"> Small
+    </p>
+    <h3>수량(다중선택)</h3> <!-- http://localhost/order.php?check1=green&check2=L&dum=1&dum=5&dum=10 -->
+    <p>
+      <input type="checkbox" name="dum" value="1" checked> 1
+      <input type="checkbox" name="dum" value="5"> 5
+      <input type="checkbox" name="dum" value="10"> 10
+      <input type="checkbox" name="dum" value="50"> 50
+      <input type="checkbox" name="dum" value="100"> 100
+    </p>
+
+    <select name="color">
+      <option value="1">red</option> <!-- value : 컴퓨터에게 전송할 데이터-->
+      <option value="2">green</option>
+      <option value="3">blue</option>
+    </select>
+    <br><br>
+
+    이름 : <input type="text" name="name">
+    나이 : <input type="number" name="age">
+    휴대전화 : <input type="tel" name="phone">
+    이메일: <input type="email" required><br>
+    <input type="file" name="profile">
+    <p>히든</p>
+    <input type="hidden" name="ip" value="접속 ip 정보">
+
+    <input type="submit">
+  </form>
+</body>
+
+</html>
