@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/116a85af51.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <style>
+    /* Fontawesome 4.7 */
+    @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+    .container {
+      border: 1xp solid black;
+      margin: auto;
+      width: 400px;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .title {
+      background-color: #eee;
+    }
+
+    .heart svg {
+      font-size: 40px;
+      color: rgb(206, 26, 26);
+      margin-top: 10px;
+      animation: bouns 1s ease-in-out infinite;
+    }
+
+    .star svg {
+      font-size: 40px;
+      color: rgb(255, 238, 0);
+      margin-top: 10px;
+      animation: turn 0.5s ease-in-out alternate infinite;
+    }
+
+    .mouse1 svg {
+      font-size: 40px;
+      color: gainsboro;
+      margin-top: 10px;
+    }
+
+    .mouse2 svg {
+      font-size: 40px;
+      color: gainsboro;
+      margin-top: 10px;
+    }
+
+    .loading svg {
+      font-size: 40px;
+      margin-top: 10px;
+      animation: rotate 1s linear infinite;
+    }
+
+    @keyframes bouns {
+      0% {
+        transform: scale(1.2);
+      }
+
+      50% {
+        transform: scale(0.9);
+      }
+
+      100% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes turn {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">애니메이션 예시 1</div>
+    <div class="contents">
+      <div class="heart">
+        <i class="fa fa-heart"></i>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title">애니메이션 예시 2</div>
+    <div class="contents">
+      <div class="star">
+        <i class="fa fa-star"></i>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title">애니메이션 예시 3</div>
+    <div class="contents">
+      <div class="loading">
+        <i class="fa-solid fa-rotate-right"></i>
+        <p>Loading</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
