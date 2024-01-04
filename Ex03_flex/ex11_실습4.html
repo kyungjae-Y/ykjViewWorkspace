@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      height: 70vh;
+    }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    section:nth-child(1) {
+      flex-direction: column;
+      flex: 1;
+    }
+
+    section:nth-child(2) {
+      flex-direction: column;
+      flex: 1;
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .con {
+      flex: 1;
+      display: flex;
+      background-color: yellow;
+    }
+
+    .sub1 {
+      display: flex;
+      background-color: lightblue;
+      flex: 1;
+    }
+
+    .sub2 {
+      display: flex;
+      background-color: tomato;
+      flex: 1;
+    }
+
+    h2 {
+      padding: 0 10px;
+    }
+
+    p {
+      padding: 0 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media(max-width:768px) {
+      body {
+        display: flex;
+        align-items: start;
+      }
+
+      .container {
+        width: 100%;
+        flex-direction: column;
+        justify-content: start;
+        order: -1;
+      }
+
+      article {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <section>
+      <article class="con">
+        <h2>content1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga velit labore, voluptates iusto at accusamus,
+          enim ipsam, nisi molestias adipisci quibusdam et? Fugit aliquam incidunt accusamus! Saepe impedit eos odio aut
+          doloribus sunt natus, architecto, magnam mollitia doloremque ipsam laborum? Expedita ratione eveniet,
+          voluptate modi ducimus quo porro ea quam, impedit omnis nihil, soluta earum. Commodi nostrum dolorem tempore
+          odit a labore, delectus ex non velit explicabo vero inventore voluptatum magni minus modi deserunt porro!
+          Distinctio soluta quia harum tempora cupiditate eveniet doloribus. Cupiditate quia eos velit eum temporibus
+          fuga totam? Recusandae, molestias molestiae perspiciatis nostrum illo deserunt error quod reprehenderit
+          repellendus illum sint incidunt est voluptate qui eius dignissimos natus placeat facere ut at et commodi!
+          Perspiciatis asperiores natus, eius fugit error similique temporibus rerum quo consectetur officia recusandae
+          dolorum modi placeat nobis quas nemo officiis, quis cupiditate repellat. Eum quidem expedita vero unde
+          corporis perspiciatis, distinctio iure voluptatem!</p>
+      </article>
+    </section>
+    <section>
+      <article class="sub1">
+        <h2>sub1</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, hic.</p>
+      </article>
+      <article class="sub2">
+        <h2>sub2</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, animi.</p>
+      </article>
+    </section>
+  </div>
+</body>
+
+</html>
