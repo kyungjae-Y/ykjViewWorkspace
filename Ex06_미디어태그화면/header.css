@@ -1,0 +1,122 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap'); 
+/* reset CSS */
+a{ 
+  text-decoration: none;
+  color: #222;
+}
+h1,h2,h3,h4,h5,h6{ 
+  margin: 0;
+}
+button, .trigger{ 
+  cursor: pointer;
+  outline: none;
+}
+body{
+  margin: 0;
+  height: 100vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+}
+header{
+  background-color: #6c5ce7;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav{
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img{
+  filter: invert();
+  width: 100px;
+  margin: 0 10px;
+}
+.gnb{
+  display: flex;
+}
+.gnb a{
+  margin: 10px;
+  color: white;
+}
+.sns{
+  padding: 8px;
+}
+.sns i{
+  margin: 5px;
+  color: white;
+}
+.gnb a:hover, .sns i:hover{
+  color: black;
+}
+
+@media(max-width:768px){
+  header{
+    height: auto;
+  }
+  nav{
+    width: 100%;
+    flex-direction: column;
+  }
+  .logo{
+    width: 100%;
+    padding: 10px;
+  }
+  .gnb, .sns{
+    display: none;
+  }
+  .gnb.on, .sns.on{
+    display: flex;
+  }
+  .gnb{
+    flex-direction: column;
+    text-align: center;
+  }
+  .gnb a{
+    color: white;
+  }
+  .sns{
+    width: 100%;
+    justify-content: center;
+    background-color: #a29bfe;
+  }
+  .trigger{
+    width: 25px;
+    height: 15px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .trigger span{
+    background-color: bisque;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+  }
+  .trigger span:nth-child(1){
+    top:0;
+  }
+  .trigger span:nth-child(2){
+    top:50%;
+  }
+  .trigger span:nth-child(3){
+    top:100%;
+  }
+  .trigger.active span:nth-child(1){
+    transform: rotate(45deg);
+    top:50%;
+  }
+  .trigger.active span:nth-child(2){
+    /* top:50%; */
+    opacity: 0;
+  }
+  .trigger.active span:nth-child(3){
+    transform: rotate(-45deg);
+    top:50%;
+  }
+}
