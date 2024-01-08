@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="header.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="#"><img src="./images/logo.png" alt="logo"></a>
+      </div>
+      <div class="gnb on">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Project</a>
+        <a href="#">Plan & History</a>
+        <a href="#">Awards</a>
+        <a href="#">Location</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="sns on">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-youtube-play"></i></a>
+      </div>
+      <!-- 트리거 태그 만들기 -->
+      <div class="trigger active">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</body>
+
+</html>
+<script>
+  $('.trigger').click(
+    function () {
+      $(this).toggleClass('active')
+      $('.gnb, .sns').toggleClass('on')
+    }
+  )
+</script>
