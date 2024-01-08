@@ -74,10 +74,8 @@ form .row{
 form label em{ 
   color: red;
 }
-form textarea{}
 
 /* policy */
-.policy{}
 .policy h4{
   margin: 10px 0;
 }
