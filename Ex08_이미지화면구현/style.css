@@ -66,6 +66,12 @@ section{
   font-size: 18px;
   box-sizing: border-box;
 }
+.search-box input:focus::placeholder{
+  /* placeholder 가 화면에서 사라지는 방법 */
+  /* display: none; */
+  /* opacity: 0; */
+  visibility: hidden;
+}
 .search-box button{
   background-color: crimson;
   color: #fff;
