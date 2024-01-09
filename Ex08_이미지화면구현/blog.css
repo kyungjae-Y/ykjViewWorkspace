@@ -1,0 +1,103 @@
+ /* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); 
+ /* reset CSS */
+a{
+  text-decoration: none;
+  color: #222;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+button{
+  cursor: pointer;
+  outline: none;
+}
+body{
+  margin: 0;
+  height: 100vh;
+}
+section{
+  width: 1000px;
+  margin: auto;
+  display: flex;
+}
+.post{
+  display: flex;
+}
+.post:nth-child(odd){
+  flex-direction: column;
+}
+.post:nth-child(even){
+  flex-direction: column-reverse;
+}
+.image{
+  width: 250px;
+  overflow: hidden;
+}
+.image img{
+  width: 100%;
+  display: block;
+  transition: 0.3s;
+}
+.image img:hover{
+  transform: scale(1.05);
+}
+.desc{
+  height: 250px;
+  color: #fff;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: lightseagreen;
+}
+.desc h2{
+  padding-top: 20px;
+}
+.desc p{
+  padding: 20px;
+}
+@media (min-width: 768px) and (max-width:1024px) {
+  section{
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .post:nth-child(odd){
+    flex-direction: row;
+  }
+  .post:nth-child(even){
+    flex-direction: row-reverse;
+  }
+  .post .image, .post .desc{
+    flex: 1;
+    height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  section{
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+  }
+  .image{
+    width: 100%;
+    flex: 2;
+  }
+  .desc{
+    flex: 1;
+  }
+  .post{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column !important; */
+  }
+  .post:nth-child(odd){
+    flex-direction: column;
+  }
+  .post:nth-child(even){
+    flex-direction: column;
+  }
+}
