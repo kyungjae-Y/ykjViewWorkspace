@@ -62,3 +62,9 @@ let num2 = '10';
 num2 = +num2;
 num2 = num2 * 1;
 num2 = parseInt('100');
+
+// 단축 평가
+console.log(true || '윤경재');
+console.log(false || '윤경재');
+console.log(true && '윤경재');
+console.log(false && '윤경재');
