@@ -2,9 +2,10 @@ let array = [];
 array[3] = 100;
 console.log(array);
 
-array = [1,
-  '2',
-  true, NaN, {}, [100, 203, 12, 123], [], 12.1233123
+array = [
+  1, '2', true, NaN, {},
+  [100, 203, 12, 123],
+  [], 12.1233123
 ]
 console.log(array);
 
