@@ -10,7 +10,7 @@ function oldPet(kind, name, age) {
   // return this;
 
 }
-// 클래스 : 속성(인스턴스 변수) : 행동 (메서드 :함수 )
+// 클래스 : 속성(인스턴스 변수) : 행동
 
 class Pet {
   // Pet(){} 자바는 기본 생성자가 있다 
