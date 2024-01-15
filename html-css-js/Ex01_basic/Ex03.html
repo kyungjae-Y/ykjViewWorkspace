@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      margin: 10px;
+      /* transform: translateX(200px); */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <button class="btn1">네모 확대</button>
+  <button class="btn2">네모 이동</button>
+  <button class="btn3">네모 회전</button>
+</body>
+
+</html>
+
+<script>
+  const box = document.querySelector('.box');
+  const btn1 = document.querySelector('.btn1');
+  const btn2 = document.querySelector('.btn2');
+  const btn3 = document.querySelector('.btn3');
+  // innerHTML vs textContent
+  // innerHTML -> 전체적인 html DOM tree 다시 생성
+  // textContent -> 부분적으로 해당 요소만 리렌더링, 리페인팅
+  // text 변동이 많으면 textContent 를 사용하는 것이 더 효과적
+
+  let isChecked1 = true;
+  let isChecked2 = true;
+  let isChecked3 = true;
+  btn1.addEventListener("mouseover", () => {
+    isChecked1 ? bigBox() : smallBox();
+  })
+  btn2.addEventListener("mouseout", () => {
+    isChecked2 ? moveBox() : comebackBox();
+  })
+  btn3.addEventListener("click", () => {
+    isChecked3 ? turnBox() : homeBox();
+  })
+
+  function bigBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'scale(1.5)';
+    box.style.transition = '2s ease-in-out'
+    btn1.textContent = '네모 축소';
+    isChecked1 = !isChecked1
+  }
+
+  function smallBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'scale(1)';
+    box.style.transition = '2s ease-in-out'
+    btn1.textContent = '네모 확대';
+    isChecked1 = !isChecked1
+  }
+
+  function moveBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'translate(200px)';
+    box.style.transition = '2s ease-in-out';
+    btn2.textContent = '네모 컴백'
+    isChecked2 = !isChecked2
+  }
+
+  function comebackBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'translate(0px)';
+    box.style.transition = '2s ease-in-out';
+    btn2.textContent = '네모 이동'
+    isChecked2 = !isChecked2
+  }
+
+  function turnBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'rotate(-45deg)';
+    box.style.transition = '2s ease-in-out';
+    btn3.textContent = '네모 회전'
+    isChecked3 = !isChecked3
+  }
+
+  function homeBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'rotate(45deg)';
+    box.style.transition = '2s ease-in-out';
+    btn3.textContent = '네모 회전'
+    isChecked3 = !isChecked3
+  }
+</script>
