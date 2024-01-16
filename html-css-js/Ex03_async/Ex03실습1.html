@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1></h1>
+  <button class="stop">중지</button>
+</body>
+
+</html>
+
+<script>
+  const h1 = document.querySelector('h1')
+  const btn = document.querySelector('.stop')
+  let cnt = 0;
+  let count = () => {
+    h1.innerHTML = ++cnt;
+  }
+  let interval = setInterval(count, 1000);
+
+  const stop = () => {
+    clearInterval(interval);
+  }
+  btn.addEventListener('click', stop);
+</script>
