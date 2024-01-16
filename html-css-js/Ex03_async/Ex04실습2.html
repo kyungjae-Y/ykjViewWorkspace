@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1></h1>
+  <button class="btn1">재시작</button>
+  <button class="btn2">완전 종료</button>
+</body>
+
+</html>
+
+<script>
+  const h1 = document.querySelector('h1')
+  const btns = document.querySelectorAll('button')
+  let cnt = 0;
+  let count = () => {
+    h1.innerHTML = ++cnt;
+  }
+  let interval = setInterval(count, 50);
+
+  const restart = () => {
+    setTimeout(() => {
+      cnt = 0;
+      interval = setInterval(count, 50);
+    }, 1000)
+  }
+
+  const stop = () => {
+    clearInterval(interval);
+  }
+  btns[0].addEventListener('click', restart);
+  btns[1].addEventListener('click', stop);
+</script>
