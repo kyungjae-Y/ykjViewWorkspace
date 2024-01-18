@@ -165,12 +165,12 @@ class Game {
     let temp = now - this.startTime;
     var m = Math.floor((temp % (1000 * 60 * 60)) / (1000 * 60));
     var s = Math.floor((temp % (1000 * 60)) / 1000);
-    var ms = Math.floor(temp % (1000 * 60) % 1000);
+    var ms = Math.floor(temp % (1000 * 60) % 100);
 
     function intToTime(i) {
       return i >= 10 ? i : "0" + i;
     }
-    return intToTime(m) + ":" + intToTime(s) + ":" + ms;
+    return intToTime(m) + ":" + intToTime(s) + ":" + intToTime(ms);
   }
 }
 
