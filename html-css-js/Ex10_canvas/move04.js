@@ -1,10 +1,10 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext('2d');
 let key = {
-  right: false,
-  left: false,
-  up: false,
-  down: false
+  ArrowRight: false,
+  ArrowDown: false,
+  ArrowUp: false,
+  ArrowLeft: false
 }
 let player = {
   x: 150,
@@ -14,89 +14,80 @@ let player = {
   speed: 5
 }
 
+let enemyList = [];
+
+function keyHandler(e, value) {
+  if (key[e.key] !== undefined) {
+    key[e.key] = value;
+  }
+}
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  enemyList.forEach(enemy => drawObj(enemy));
+  drawObj(player);
+  movePlayer();
+  isCollison();
+}
+
+function drawObj(obj) {
   ctx.beginPath();
-  ctx.rect(player.x, player.y, player.size, player.size);
-  ctx.fillStyle = 'blue';
+  ctx.rect(obj.x, obj.y, obj.size, obj.size);
+  ctx.fillStyle = obj.color;
   ctx.fill();
   ctx.closePath();
-  movePlayer();
-  drawEnemy(drawEnemyList());
-}
-
-function drawEnemyList() {
-  let enemyList = [];
-  for (let i = 1; i <= 4; i++) {
-    let enemy = {
-      x: canvas.width / 5 * i - 40,
-      y: canvas.height / 2 - 40,
-      size: 80,
-      color: 'green',
-    }
-    enemyList.push(enemy);
-  }
-  return enemyList;
-}
-
-function drawEnemy(enemyList) {
-  enemyList.forEach(e => {
-    ctx.beginPath();
-    ctx.rect(e.x, e.y, e.size, e.size);
-    ctx.fillStyle = checkColor(e);
-    ctx.fill();
-    ctx.closePath();
-  })
-}
-
-function checkColor(enemy) {
-  if (player.x + player.size >= enemy.x && player.x <= enemy.x + enemy.size &&
-    player.y + player.size >= enemy.y && player.y <= enemy.y + enemy.size) {
-    return 'red';
-  } else {
-    return 'green';
-  }
 }
 
 function movePlayer() {
-  if (key.right && player.x < canvas.width - player.size) {
-    player.x += 5;
-  } else if (key.down && player.y < canvas.height - player.size) {
-    player.y += 5;
-  } else if (key.up && player.y > 0) {
-    player.y -= 5;
-  } else if (key.left && player.x > 0) {
-    player.x -= 5;
+  if (key.ArrowRight && player.x < canvas.width - player.size) {
+    player.x += player.speed;
+  } else if (key.ArrowDown && player.y < canvas.height - player.size) {
+    player.y += player.speed;
+  } else if (key.ArrowUp && player.y > 0) {
+    player.y -= player.speed;
+  } else if (key.ArrowLeft && player.x > 0) {
+    player.x -= player.speed;
   }
 }
 
-// 키 다운할때는 사각형 움직이고 draw()
-document.addEventListener("keydown", e => {
-  if (e.keyCode === 39 || e.key === 'ArrowRight') {
-    key.right = true;
-  } else if (e.keyCode === 40 || e.key === 'ArrowDown') {
-    key.down = true;
-  } else if (e.keyCode === 38 || e.key === 'ArrowUp') {
-    key.up = true;
-  } else if (e.keyCode === 37 || e.key === 'ArrowLeft') {
-    key.left = true;
+function setEnemyList(size) {
+  for (let i = 0; i < size; i += 1) {
+    let enemy = {
+      x: 120 + 150 * i,
+      y: 300,
+      size: 80,
+      color: 'green'
+    }
+    enemyList.push(enemy);
   }
-})
+}
 
-// 키 업일때는 사각형 안움직인다 
-document.addEventListener("keyup", e => {
-  if (e.keyCode === 39 || e.key === 'ArrowRight') {
-    key.right = false;
-    //if (x < canvas.width - size) x += 5;
-  } else if (e.keyCode === 40 || e.key === 'ArrowDown') {
-    key.down = false;
-    // if (y < canvas.height - size) y += 5;
-  } else if (e.keyCode === 38 || e.key === 'ArrowUp') {
-    //if (y > 0) y -= 5;
-    key.up = false;
-  } else if (e.keyCode === 37 || e.key === 'ArrowLeft') {
-    //if (x > 0) x -= 5;
-    key.left = false;
-  }
-})
-setInterval(draw, 10)
+function init() {
+  setEnemyList(4);
+  document.addEventListener("keydown", e => {
+    keyHandler(e, true);
+  })
+  document.addEventListener("keyup", e => {
+    keyHandler(e, false);
+  })
+}
+
+function inEnemy(px, py, enemy) {
+  return (enemy.x < px && px < enemy.x + enemy.size) &&
+    (enemy.y < py && py < enemy.y + enemy.size)
+}
+
+function collison(enemy) {
+  if (inEnemy(player.x, player.y, enemy)) return true;
+  else if (inEnemy(player.x + player.size, player.y, enemy)) return true;
+  else if (inEnemy(player.x, player.y + player.size, enemy)) return true;
+  else if (inEnemy(player.x + player.size, player.y + player.size, enemy)) return true;
+  else return false;
+}
+
+function isCollison() {
+  enemyList.forEach(enemy => collison(enemy) ? enemy.color = 'red' : enemy.color = 'green');
+}
+
+init();
+setInterval(draw, 10);
