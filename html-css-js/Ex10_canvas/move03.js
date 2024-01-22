@@ -77,7 +77,6 @@ document.addEventListener("keydown", e => {
 
 // 키 업일때는 사각형 안움직인다 
 document.addEventListener("keyup", e => {
-  console.log(e.keyCode);
   if (e.keyCode === 39 || e.key === 'ArrowRight') {
     key.right = false;
     //if (x < canvas.width - size) x += 5;
