@@ -39,14 +39,12 @@ document.getElementById("play").addEventListener("click", function game() {
   // 0 = pac-dot ; 1 = wall ; 2 = ghost-lair ; 3 = power-pellet ; 4 = empty;
   const squares = [];
 
-
   // Draw the grid
   function createBoard() {
     for (let i = 0; i < layout.length; i++) {
       const square = document.createElement("div");
       grid.appendChild(square);
       squares.push(square);
-
       // Add layout to the board
       if (layout[i] === 0) {
         squares[i].classList.add("pac-dot");
@@ -135,8 +133,6 @@ document.getElementById("play").addEventListener("click", function game() {
 
   document.addEventListener("keydown", movePacman);
 
-
-
   // Move Pac-Man on mobile devices (Swipe up-down-left-right)
   var initialX = null;
   var initialY = null;
@@ -205,19 +201,14 @@ document.getElementById("play").addEventListener("click", function game() {
 
     e.preventDefault();
 
-
     pacDotEaten();
     powerPelletEaten();
     checkForGameOver();
     checkForWin();
-
   }
 
   document.querySelector(".grid").addEventListener("touchstart", startTouch, false);
   document.querySelector(".grid").addEventListener("touchmove", moveTouch, false);
-
-
-
 
   // When Pac-Man eats a Pac-Dot
   function pacDotEaten() {
@@ -240,7 +231,6 @@ document.getElementById("play").addEventListener("click", function game() {
     }
     scoreDisplay.innerHTML = score;
   }
-
 
   // Create Ghost template
   class Ghost {
@@ -265,7 +255,6 @@ document.getElementById("play").addEventListener("click", function game() {
   function unScareGhosts() {
     ghosts.forEach(ghost => ghost.isScared = false)
   }
-
 
   // Draw the ghosts onto the grid
   ghosts.forEach(ghost => {
@@ -296,12 +285,9 @@ document.getElementById("play").addEventListener("click", function game() {
       } else {
         direction = directions[Math.floor(Math.random() * directions.length)]
       }
-
-
       if (ghost.isScared) {
         squares[ghost.currentIndex].classList.add("scared-ghost");
       }
-
       if (squares[pacmanCurrentIndex].classList.contains("scared-ghost")) {
         squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scared-ghost");
         ghost.currentIndex = ghost.startIndex;
@@ -309,9 +295,7 @@ document.getElementById("play").addEventListener("click", function game() {
         scoreDisplay.innerHTML = score;
         squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
       }
-
       checkForGameOver();
-
     }, ghost.speed)
   }
 
