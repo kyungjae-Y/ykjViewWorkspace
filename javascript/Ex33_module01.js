@@ -1,9 +1,6 @@
-import {
-  increase,
-  getCount
-} from "./Ex34.counter";
+const counter = require('./Ex34.counter.js')
 
-increase();
-increase();
-increase();
-increase();
+counter.increase();
+counter.increase();
+counter.increase();
+counter.increase();
