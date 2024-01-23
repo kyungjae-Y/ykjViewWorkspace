@@ -1,3 +1,6 @@
+import Player from './Player.js';
+import Poop from './Poop.js';
+
 class App {
   constructor() {
     this.player = new Player();
